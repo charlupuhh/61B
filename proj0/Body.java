@@ -1,7 +1,6 @@
 import java.lang.Math;
 
 public class Body {
-	
 
 	public double xxPos;
 	public double yyPos;

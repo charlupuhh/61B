@@ -30,11 +30,13 @@ public class NBody {
 	}
 
 	//Update the X and Y Force arrays then use those to update the Body array.
-	public static void updateShit(Body[] b, double[] xForce, double[] yForce){
+	public static void updateShit(Body[] b, double[] xForce, double[] yForce, double time){
 		
 		for (int i = 0; i < b.length; i++){
 			xForce[i] = b[i].calcNetForceExertedByX(b);
 			yForce[i] = b[i].calcNetForceExertedByY(b);
+		}
+		for (int i = 0; i < b.length; i++){
 			b[i].update(time, xForce[i], yForce[i]);
 		}
 	}
@@ -57,7 +59,7 @@ public class NBody {
 
 		//Until designated time, 
 		while (time < t){
-			updateShit(bodies, xForces, yForces);
+			updateShit(bodies, xForces, yForces, dt);
 			drawGalaxy(bodies);
 			time += dt;
 		}
